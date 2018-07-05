@@ -33,8 +33,8 @@ func _physics_process(delta):
 func process_await_input(delta):
 	if (Input.is_mouse_button_pressed(BUTTON_LEFT)): # Touch input is registered as left mouse button
 		# get touch location relative to player satellite position
-		# TODO make thrust velocity non-linear
-		direction = -(get_position() - get_viewport().get_mouse_position()) / SENSITIVITY_DIVISOR
+		var dirnsquare = (get_position() - get_viewport().get_mouse_position()) / SENSITIVITY_DIVISOR
+		direction = Vector2(-sqroot(dirnsquare.x), -sqroot(dirnsquare.y))
 		
 		state = gamestates.FLYING
 		
@@ -66,6 +66,10 @@ func process_flying(delta):
 	if col:
 		if col.get_collider().get("is_finish"):
 			state = gamestates.FINISHED_SUCCESS
+			
+			# Rotate so rocket stands
+			rotate_to(get_position() - get_node_position(col.get_collider()))
+			# TODO set distance from planet
 		else:
 			state = gamestates.FINISHED_FAILURE
 	
@@ -78,7 +82,8 @@ func process_finished(delta):
 		finished = delta
 		
 		if state == gamestates.FINISHED_SUCCESS:
-			get_parent().get_node("HUD/LevelSuccess").popup(Rect2(100, 100, 400, 400))
+			# TODO better end screen
+			get_parent().get_node("HUD/Success").popup_centered(Vector2(200, 200))
 		else:
 			# Play the explosion and reset
 			get_node("Timers/ResetTimer").start()
@@ -90,8 +95,8 @@ func process_finished(delta):
 			reset_level()
 	
 	# TODO buttons on end screen instead of just clicking
-	if (Input.is_mouse_button_pressed(BUTTON_LEFT)):
-		reset_level()
+	#if (Input.is_mouse_button_pressed(BUTTON_LEFT)):
+	#	reset_level()
 
 func get_gravitational_force(planet):
 	# Get planets properties

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/finish.png-c10d5ba532c1e23f13b307608a87630f.stex"
+path="res://.import/repeatbutton.png-d3022597ae3ea6d425a04f9e17e918ff.stex"
 
 [deps]
 
-source_file="res://assets/planets/finish.png"
-source_md5="bc61c45b757a28117599e88462e258ea"
+source_file="res://assets/ui/repeatbutton.png"
+source_md5="b6abd81ce5395b863389408d9734549b"
 
-dest_files=[ "res://.import/finish.png-c10d5ba532c1e23f13b307608a87630f.stex" ]
-dest_md5="6c8ca1befe3135fb3bd3c6878071ec73"
+dest_files=[ "res://.import/repeatbutton.png-d3022597ae3ea6d425a04f9e17e918ff.stex" ]
+dest_md5="a76190bd6b1347e667114462b01acdbe"
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/finish.png-c10d5ba532c1e23f13b307608a87630f.stex"
+path="res://.import/4.png-277456f41b45d1eeee202e0f5b9c3889.stex"
 
 [deps]
 
-source_file="res://assets/planets/finish.png"
-source_md5="bc61c45b757a28117599e88462e258ea"
+source_file="res://assets/planets/4.png"
+source_md5="ad29aa370b07c404b15944302f40c8af"
 
-dest_files=[ "res://.import/finish.png-c10d5ba532c1e23f13b307608a87630f.stex" ]
-dest_md5="6c8ca1befe3135fb3bd3c6878071ec73"
+dest_files=[ "res://.import/4.png-277456f41b45d1eeee202e0f5b9c3889.stex" ]
+dest_md5="0e0a5edf51c827dc7bca6817cf7cf53c"
 
 [params]
 

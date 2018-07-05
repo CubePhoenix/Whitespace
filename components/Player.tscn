@@ -3,18 +3,18 @@
 [ext_resource path="res://gamestates/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/player/rocket.png" type="Texture" id=2]
 
-[sub_resource type="Gradient" id=8]
+[sub_resource type="Gradient" id=1]
 
 offsets = PoolRealArray( 0, 1 )
 colors = PoolColorArray( 0.867188, 0.867188, 0.867188, 1, 0.230469, 0.230469, 0.230469, 1 )
 
-[sub_resource type="GradientTexture" id=9]
+[sub_resource type="GradientTexture" id=2]
 
 flags = 4
-gradient = SubResource( 8 )
+gradient = SubResource( 1 )
 width = 2048
 
-[sub_resource type="ParticlesMaterial" id=7]
+[sub_resource type="ParticlesMaterial" id=3]
 
 render_priority = 0
 trail_divisor = 1
@@ -44,7 +44,7 @@ angle = 0.0
 angle_random = 0.0
 scale = 1.5
 scale_random = 0.0
-color_ramp = SubResource( 9 )
+color_ramp = SubResource( 2 )
 hue_variation = 0.0
 hue_variation_random = 0.0
 anim_speed = 0.0
@@ -54,7 +54,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Angle", "Angular Velocity", "Color", "Damping", "Emission Shape", "Flags", "Gravity", "Hue Variation", "Initial Velocity", "Scale", "Spread", "Tangential Accel", "Trail" ]
 
-[sub_resource type="ParticlesMaterial" id=10]
+[sub_resource type="ParticlesMaterial" id=4]
 
 render_priority = 0
 trail_divisor = 1
@@ -83,7 +83,7 @@ angle = 0.0
 angle_random = 0.0
 scale = 1.5
 scale_random = 0.0
-color_ramp = SubResource( 9 )
+color_ramp = SubResource( 2 )
 hue_variation = 0.0
 hue_variation_random = 0.0
 anim_speed = 0.0
@@ -93,18 +93,18 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Angle", "Angular Velocity", "Color", "Damping", "Emission Shape", "Flags", "Gravity", "Hue Variation", "Initial Velocity", "Linear Accel", "Orbit Velocity", "Radial Accel", "Scale", "Spread", "Tangential Accel", "Trail" ]
 
-[sub_resource type="Gradient" id=3]
+[sub_resource type="Gradient" id=5]
 
 offsets = PoolRealArray( -6.4033e-14, 0, 1 )
 colors = PoolColorArray( 0.792969, 0.792969, 0.792969, 1, 0.515625, 0.515625, 0.515625, 1, 0.195312, 0.195312, 0.195312, 1 )
 
-[sub_resource type="GradientTexture" id=4]
+[sub_resource type="GradientTexture" id=6]
 
 flags = 4
-gradient = SubResource( 3 )
+gradient = SubResource( 5 )
 width = 2048
 
-[sub_resource type="ParticlesMaterial" id=2]
+[sub_resource type="ParticlesMaterial" id=7]
 
 render_priority = 0
 trail_divisor = 1
@@ -133,7 +133,7 @@ angle = 0.0
 angle_random = 0.0
 scale = 1.0
 scale_random = 0.0
-color_ramp = SubResource( 4 )
+color_ramp = SubResource( 6 )
 hue_variation = 0.0
 hue_variation_random = 0.0
 anim_speed = 0.0
@@ -143,20 +143,20 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Color", "Emission Shape", "Flags", "Gravity", "Hue Variation", "Initial Velocity", "Orbit Velocity", "Spread", "Trail" ]
 
-[sub_resource type="CapsuleShape2D" id=1]
+[sub_resource type="CapsuleShape2D" id=8]
 
 custom_solver_bias = 0.0
 radius = 10.0
 height = 44.988
 
-[node name="Player" type="KinematicBody2D" index="0"]
+[node name="Player" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision", "Pickable", "Transform", "collision" ]
+_sections_unfolded = [ "Collision", "Material", "Pickable", "Transform", "Visibility", "Z Index", "collision" ]
 __meta__ = {
 "_edit_group_": true
 }
@@ -179,7 +179,7 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = false
 draw_order = 0
-process_material = SubResource( 7 )
+process_material = SubResource( 3 )
 texture = null
 normal_map = null
 h_frames = 1
@@ -202,7 +202,7 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = false
 draw_order = 0
-process_material = SubResource( 10 )
+process_material = SubResource( 4 )
 texture = null
 normal_map = null
 h_frames = 1
@@ -225,7 +225,7 @@ fract_delta = true
 visibility_rect = Rect2( -100, -100, 200, 200 )
 local_coords = false
 draw_order = 0
-process_material = SubResource( 2 )
+process_material = SubResource( 7 )
 texture = null
 normal_map = null
 h_frames = 1
@@ -236,11 +236,11 @@ _sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Trans
 
 scale = Vector2( 0.07, 0.07 )
 texture = ExtResource( 2 )
-_sections_unfolded = [ "Transform", "Visibility" ]
+_sections_unfolded = [ "Animation", "Offset", "Region", "Transform", "Visibility", "Z Index" ]
 
 [node name="CollisionShape" type="CollisionShape2D" parent="." index="2"]
 
-shape = SubResource( 1 )
+shape = SubResource( 8 )
 
 [node name="Timers" type="Node" parent="." index="3"]
 
