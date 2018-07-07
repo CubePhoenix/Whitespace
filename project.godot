@@ -11,9 +11,19 @@ config_version=3
 [application]
 
 config/name="Whitespace"
-run/main_scene="res://gamestates/World.tscn"
+run/main_scene="res://levels/1.tscn"
+run/low_processor_mode=true
 config/icon="res://icon.png"
+
+[autoload]
+
+Global="*res://components/Global.gd"
+
+[locale]
+
+locale_filter=[ 0, [  ] ]
 
 [rendering]
 
+environment/default_clear_color=Color( 1, 1, 1, 1 )
 environment/default_environment="res://default_env.tres"

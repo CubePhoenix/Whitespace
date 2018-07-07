@@ -36,7 +36,8 @@ func process_await_input(delta):
 		var dirnsquare = (get_position() - get_viewport().get_mouse_position()) / SENSITIVITY_DIVISOR
 		direction = Vector2(-sqroot(dirnsquare.x), -sqroot(dirnsquare.y))
 		
-		state = gamestates.FLYING
+		# Rotate the rocket to the touch input
+		rotate_to(direction)
 		
 		# Thrust animation
 		get_node("Particles/Thruster1").set_emitting(true)
@@ -45,9 +46,9 @@ func process_await_input(delta):
 		yield(get_node("Timers/ThrustTimer"), "timeout")
 		get_node("Particles/Thruster1").set_emitting(false)
 		get_node("Particles/Thruster2").set_emitting(false)
-	else:
-		# Wait for next round
-		pass
+		
+	elif (direction != Vector2(0, 0)): # if a direction was set previously
+		state = gamestates.FLYING
 	
 func process_flying(delta):
 	# fly further in direction (adjust according to gravitation)
@@ -82,8 +83,7 @@ func process_finished(delta):
 		finished = delta
 		
 		if state == gamestates.FINISHED_SUCCESS:
-			# TODO better end screen
-			get_parent().get_node("HUD/Success").popup_centered(Vector2(200, 200))
+			get_parent().get_node("UI").show_success()
 		else:
 			# Play the explosion and reset
 			get_node("Timers/ResetTimer").start()
@@ -126,6 +126,8 @@ func get_node_position(node):
 	return node.get("position")
 
 func reset_level():
+	get_parent().get_node("UI/Success").hide()
+	
 	state = gamestates.AWAIT_INPUT
 	position = original_position
 	finished = 0.0
@@ -141,3 +143,21 @@ func sqroot(fl):
 		
 func rotate_to(vec):
 	rotate(-atan2(-vec.x, -vec.y) - rotation)
+
+func _on_UI_nextbutton_pressed():
+	var level = get_node("/root/Global").get("level_playing") + 1
+	get_node("/root/Global").set("level_playing", level)
+	
+	if (get_node("/root/Global").get("level_solved") < level):
+		get_node("/root/Global").set("level_solved", level)
+	
+	get_tree().change_scene("res://levels/" + str(level) + ".tscn")
+
+
+func _on_UI_restartbutton_pressed():
+	reset_level()
+
+
+func _on_UI_level_selected(lvl):
+	get_node("/root/Global").set("level_playing", lvl)
+	get_tree().change_scene("res://levels/" + str(lvl) + ".tscn")

@@ -4,7 +4,7 @@
 [ext_resource path="res://components/Planet.tscn" type="PackedScene" id=2]
 [ext_resource path="res://components/UI.tscn" type="PackedScene" id=3]
 
-[node name="World" type="Node" index="0"]
+[node name="World" type="Node"]
 
 [node name="Player" parent="." index="0" instance=ExtResource( 1 )]
 
@@ -14,13 +14,25 @@ position = Vector2( 458.251, 519.996 )
 
 [node name="Planet" parent="Planets" index="0" instance=ExtResource( 2 )]
 
-position = Vector2( 624.008, 531.037 )
+position = Vector2( 786.069, 176.222 )
 mass = 400.0
 is_finish = true
 
-[node name="UI" parent="." index="2" instance=ExtResource( 3 )]
+[node name="Planet2" parent="Planets" index="1" instance=ExtResource( 2 )]
 
-[connection signal="menubutton_pressed" from="UI" to="Player" method="_on_UI_menubutton_pressed"]
+position = Vector2( 722.641, 367.411 )
+mass = 700.0
+
+[node name="Planet3" parent="Planets" index="2" instance=ExtResource( 2 )]
+
+position = Vector2( 515.641, 195.411 )
+mass = 200.0
+
+[node name="Planet4" parent="Planets" index="3" instance=ExtResource( 2 )]
+
+position = Vector2( 207.642, 422.411 )
+
+[node name="UI" parent="." index="2" instance=ExtResource( 3 )]
 
 [connection signal="nextbutton_pressed" from="UI" to="Player" method="_on_UI_nextbutton_pressed"]
 
