@@ -19,6 +19,12 @@ config/icon="res://icon.png"
 
 Global="*res://components/Global.gd"
 
+[display]
+
+window/size/width=600
+window/size/height=1024
+window/size/resizable=false
+
 [locale]
 
 locale_filter=[ 0, [  ] ]

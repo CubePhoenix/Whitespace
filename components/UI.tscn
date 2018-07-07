@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://components/UI.gd" type="Script" id=1]
 [ext_resource path="res://assets/ui/fonts/rounded_elegance.ttf" type="DynamicFontData" id=2]
@@ -7,7 +7,7 @@
 [ext_resource path="res://components/LevelOverview.gd" type="Script" id=5]
 [ext_resource path="res://assets/ui/smallbackbutton.png" type="Texture" id=6]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=4]
 
 size = 100
 use_mipmaps = false
@@ -28,13 +28,151 @@ use_filter = false
 font_data = ExtResource( 2 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
+[sub_resource type="Animation" id=6]
+
+resource_name = "Levels"
+length = 0.2
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 230, 424 ), Vector2( 1024, 424 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../LevelOverview:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -424, 424 ), Vector2( 230, 424 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+
+resource_name = "LevelsBack"
+length = 0.2
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("../LevelOverview:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 230, 424 ), Vector2( -424, 424 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1024, 424 ), Vector2( 230, 424 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+
+resource_name = "LevelsSelected"
+length = 0.2
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("../LevelOverview:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 230, 424 ), Vector2( -424, 424 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+
+resource_name = "Success"
+length = 0.2
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 230, 1448 ), Vector2( 230, 424 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+
+resource_name = "SuccessNextLevel"
+length = 0.2
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 230, 424 ), Vector2( -424, 424 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+
+resource_name = "SuccessRestart"
+length = 0.2
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 230, 424 ), Vector2( 230, 1448 ) ]
+}
+
 [node name="UI" type="CanvasLayer" index="0"]
 
 layer = 1
-offset = Vector2( 0, 0 )
+offset = Vector2( 64, 0 )
 rotation = 0.0
 scale = Vector2( 1, 1 )
-transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+transform = Transform2D( 1, 0, 0, 1, 64, 0 )
 script = ExtResource( 1 )
 
 [node name="Success" type="CenterContainer" parent="." index="0"]
@@ -44,10 +182,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -1024.0
-margin_top = -600.0
-margin_right = -1024.0
-margin_bottom = -600.0
+margin_left = -370.0
+margin_top = 424.0
+margin_right = -370.0
+margin_bottom = 424.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -90,7 +228,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0.371094, 0.371094, 0.371094, 1 )
 custom_constants/line_spacing = 0
 text = "SUCCESS!"
@@ -244,7 +382,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 use_top_left = true
 script = ExtResource( 5 )
-_sections_unfolded = [ "Anchor" ]
+_sections_unfolded = [ "Anchor", "Rect" ]
 
 [node name="VSplitContainer" type="VSplitContainer" parent="LevelOverview" index="0"]
 
@@ -343,6 +481,22 @@ shortcut = null
 group = null
 texture_normal = ExtResource( 6 )
 _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Rect", "Textures" ]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
+
+root_node = NodePath("../Success")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/Levels = SubResource( 6 )
+anims/LevelsBack = SubResource( 7 )
+anims/LevelsSelected = SubResource( 9 )
+anims/Success = SubResource( 5 )
+anims/SuccessNextLevel = SubResource( 8 )
+anims/SuccessRestart = SubResource( 10 )
+blend_times = [  ]
+_sections_unfolded = [ "Playback Options" ]
 
 [connection signal="pressed" from="Success/VBoxContainer/HBoxContainer/HSplitContainer/MenuButton" to="." method="_on_MenuButton_pressed"]
 

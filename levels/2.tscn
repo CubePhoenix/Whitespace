@@ -24,8 +24,4 @@ position = Vector2( 616.641, 317.411 )
 
 [node name="UI" parent="." index="2" instance=ExtResource( 3 )]
 
-[connection signal="nextbutton_pressed" from="UI" to="Player" method="_on_UI_nextbutton_pressed"]
-
-[connection signal="restartbutton_pressed" from="UI" to="Player" method="_on_UI_restartbutton_pressed"]
-
 

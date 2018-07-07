@@ -20,10 +20,4 @@ is_finish = true
 
 [node name="UI" parent="." index="2" instance=ExtResource( 3 )]
 
-[connection signal="level_selected" from="UI" to="Player" method="_on_UI_level_selected"]
-
-[connection signal="nextbutton_pressed" from="UI" to="Player" method="_on_UI_nextbutton_pressed"]
-
-[connection signal="restartbutton_pressed" from="UI" to="Player" method="_on_UI_restartbutton_pressed"]
-
 
