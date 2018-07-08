@@ -145,11 +145,11 @@ func rotate_to(vec):
 	rotate(-atan2(-vec.x, -vec.y) - rotation)
 
 func _on_UI_nextbutton_pressed():
-	var level = get_node("/root/Global").get("level_playing") + 1
-	get_node("/root/Global").set("level_playing", level)
+	var level = get_node("/root/global").get_level_playing() + 1
+	get_node("/root/global").set_level_playing(level)
 	
-	if (get_node("/root/Global").get("level_solved") < level):
-		get_node("/root/Global").set("level_solved", level)
+	if (get_node("/root/global").get_level_solved() < level):
+		get_node("/root/global").set_level_solved(level)
 	
 	get_tree().change_scene("res://levels/" + str(level) + ".tscn")
 
@@ -159,5 +159,5 @@ func _on_UI_restartbutton_pressed():
 
 
 func _on_UI_level_selected(lvl):
-	get_node("/root/Global").set("level_playing", lvl)
+	get_node("/root/global").set_level_playing(lvl)
 	get_tree().change_scene("res://levels/" + str(lvl) + ".tscn")

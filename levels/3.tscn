@@ -1,36 +1,36 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://components/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://components/Planet.tscn" type="PackedScene" id=2]
-[ext_resource path="res://components/UI.tscn" type="PackedScene" id=3]
+[ext_resource path="res://components/player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://components/planet.tscn" type="PackedScene" id=2]
+[ext_resource path="res://components/ui.tscn" type="PackedScene" id=3]
 
 [node name="World" type="Node"]
 
 [node name="Player" parent="." index="0" instance=ExtResource( 1 )]
 
-position = Vector2( 458.251, 519.996 )
+position = Vector2( 305.889, 907.703 )
 
 [node name="Planets" type="Node" parent="." index="1"]
 
 [node name="Planet" parent="Planets" index="0" instance=ExtResource( 2 )]
 
-position = Vector2( 786.069, 176.222 )
+position = Vector2( 405.26, 174.862 )
 mass = 400.0
 is_finish = true
 
 [node name="Planet2" parent="Planets" index="1" instance=ExtResource( 2 )]
 
-position = Vector2( 722.641, 367.411 )
+position = Vector2( 529.468, 616.359 )
 mass = 700.0
 
 [node name="Planet3" parent="Planets" index="2" instance=ExtResource( 2 )]
 
-position = Vector2( 515.641, 195.411 )
+position = Vector2( 200.034, 394.026 )
 mass = 200.0
 
 [node name="Planet4" parent="Planets" index="3" instance=ExtResource( 2 )]
 
-position = Vector2( 207.642, 422.411 )
+position = Vector2( 64.8027, 698.567 )
 
 [node name="UI" parent="." index="2" instance=ExtResource( 3 )]
 

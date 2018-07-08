@@ -35,7 +35,7 @@ func _on_BackButton_pressed():
 	
 
 func show_success():
-	if get_node("/root/Global").get("level_playing") >= get_node("/root/Global").get("level_count"):
+	if get_node("/root/global").get("level_playing") >= get_node("/root/global").get("level_count"):
 		get_node("Success/VBoxContainer/HBoxContainer/HSplitContainer/HSplitContainer/NextButton").hide()
 	else:
 		get_node("Success/VBoxContainer/HBoxContainer/HSplitContainer/HSplitContainer/NextButton").show()
