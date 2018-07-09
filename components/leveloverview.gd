@@ -13,9 +13,9 @@ func _ready():
 func get_button(number, is_locked=false):
 	var button
 	if is_locked:
-		button = load("res://components/lockedlevelbutton.tscn").instance()
+		button = preload("res://components/lockedlevelbutton.tscn").instance()
 	else:
-		button = load("res://components/levelbutton.tscn").instance()
+		button = preload("res://components/levelbutton.tscn").instance()
 		button.connect("lvlselected", get_parent(), "_level_selected")
 	
 	button.set_text(str(number))

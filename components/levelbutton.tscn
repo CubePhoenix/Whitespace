@@ -1,11 +1,18 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/ui/fonts/rounded_elegance.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://components/levelbutton.gd" type="Script" id=2]
 [ext_resource path="res://assets/ui/smallbutton.png" type="Texture" id=3]
 
+[sub_resource type="StyleBoxEmpty" id=1]
 
-[sub_resource type="DynamicFont" id=1]
+content_margin_left = 0.0
+content_margin_right = 0.0
+content_margin_top = 0.0
+content_margin_bottom = 0.0
+_sections_unfolded = [ "Content Margin" ]
+
+[sub_resource type="DynamicFont" id=2]
 
 size = 109
 use_mipmaps = false
@@ -13,7 +20,7 @@ use_filter = false
 font_data = ExtResource( 1 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="LevelButton" type="Button"]
+[node name="LevelButton" type="Button" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -29,7 +36,8 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 1 )
+custom_styles/pressed = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null

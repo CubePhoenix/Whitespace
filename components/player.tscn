@@ -3,7 +3,6 @@
 [ext_resource path="res://gamestates/player.gd" type="Script" id=1]
 [ext_resource path="res://assets/player/smallrocket.png" type="Texture" id=2]
 
-
 [sub_resource type="Gradient" id=1]
 
 offsets = PoolRealArray( 0, 1 )
@@ -23,16 +22,14 @@ emission_shape = 3
 emission_point_count = 2
 flag_align_y = false
 flag_rotate_y = false
-flag_disable_z = true
+flag_disable_z = false
 spread = 120.0
 flatness = 0.0
-gravity = Vector3( 0, 0, 0 )
+gravity = Vector3( 0, 128, 0 )
 initial_velocity = 16.0
 initial_velocity_random = 0.5
 angular_velocity = 0.0
 angular_velocity_random = 0.0
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
 linear_accel = 0.0
 linear_accel_random = 0.0
 radial_accel = 0.0
@@ -62,16 +59,14 @@ trail_divisor = 1
 emission_shape = 0
 flag_align_y = false
 flag_rotate_y = false
-flag_disable_z = true
+flag_disable_z = false
 spread = 120.0
 flatness = 0.0
-gravity = Vector3( 0, 0, 0 )
+gravity = Vector3( 0, 128, 0 )
 initial_velocity = 16.0
 initial_velocity_random = 0.5
 angular_velocity = 0.0
 angular_velocity_random = 0.0
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
 linear_accel = 0.0
 linear_accel_random = 0.0
 radial_accel = 0.0
@@ -147,28 +142,26 @@ _sections_unfolded = [ "Color", "Emission Shape", "Flags", "Gravity", "Hue Varia
 [sub_resource type="CapsuleShape2D" id=8]
 
 custom_solver_bias = 0.0
-radius = 10.0
-height = 44.988
+radius = 19.649
+height = 89.5836
 
 [node name="Player" type="KinematicBody2D" index="0"]
 
+position = Vector2( -0.323532, 19.0884 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Material", "Pickable", "Transform", "Visibility", "Z Index", "collision" ]
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Particles" type="Node2D" parent="." index="0"]
 
 [node name="Thruster1" type="Particles2D" parent="Particles" index="0"]
 
-position = Vector2( 4, 28 )
+position = Vector2( 9.50005, 48.7061 )
 emitting = false
-amount = 512
+amount = 1024
 lifetime = 1.0
 one_shot = false
 preprocess = 0.0
@@ -185,13 +178,13 @@ texture = null
 normal_map = null
 h_frames = 1
 v_frames = 1
-_sections_unfolded = [ "Drawing", "Process Material", "Time", "Transform", "Z Index" ]
+_sections_unfolded = [ "Drawing", "Process Material", "Transform", "Z Index" ]
 
 [node name="Thruster2" type="Particles2D" parent="Particles" index="1"]
 
-position = Vector2( -4, 28 )
+position = Vector2( -8.85298, 47.412 )
 emitting = false
-amount = 512
+amount = 1024
 lifetime = 1.0
 one_shot = false
 preprocess = 0.0
@@ -235,13 +228,14 @@ _sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Trans
 
 [node name="Sprite" type="Sprite" parent="." index="1"]
 
-scale = Vector2( 0.14, 0.14 )
+scale = Vector2( 0.28, 0.28 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Animation", "Offset", "Region", "Transform", "Visibility", "Z Index" ]
 
 [node name="CollisionShape" type="CollisionShape2D" parent="." index="2"]
 
 shape = SubResource( 8 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="Timers" type="Node" parent="." index="3"]
 

@@ -4,11 +4,11 @@
 [ext_resource path="res://components/planet.tscn" type="PackedScene" id=2]
 [ext_resource path="res://components/ui.tscn" type="PackedScene" id=3]
 
-[node name="World" type="Node"]
+[node name="World" type="Node" index="0"]
 
 [node name="Player" parent="." index="0" instance=ExtResource( 1 )]
 
-position = Vector2( 96.0852, 938.842 )
+position = Vector2( 100, 950 )
 
 [node name="Planets" type="Node" parent="." index="1"]
 

@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 const SENSITIVITY_DIVISOR = 20
 const GRAVITY_MULTIPLIER = 0.002
+const ROCKET_SIZE = 32.0
 
 enum gamestates {
 	FINISHED_SUCCESS, FINISHED_FAILURE, FLYING, AWAIT_INPUT
@@ -68,9 +69,11 @@ func process_flying(delta):
 		if col.get_collider().get("is_finish"):
 			state = gamestates.FINISHED_SUCCESS
 			
+			var relative_pos = -(get_position() - get_node_position(col.get_collider()))
+			
 			# Rotate so rocket stands
-			rotate_to(get_position() - get_node_position(col.get_collider()))
-			# TODO set distance from planet
+			rotate_to(-relative_pos)
+			
 		else:
 			state = gamestates.FINISHED_FAILURE
 	
@@ -93,10 +96,6 @@ func process_finished(delta):
 			get_node("Sprite").show()
 			get_node("Particles/Explosion").set_emitting(false)
 			reset_level()
-	
-	# TODO buttons on end screen instead of just clicking
-	#if (Input.is_mouse_button_pressed(BUTTON_LEFT)):
-	#	reset_level()
 
 func get_gravitational_force(planet):
 	# Get planets properties
@@ -132,6 +131,7 @@ func reset_level():
 	position = original_position
 	finished = 0.0
 	direction = Vector2(0, 0)
+	rotation = 0.0
 	
 	# TODO Spawn animation
 	
@@ -147,9 +147,6 @@ func rotate_to(vec):
 func _on_UI_nextbutton_pressed():
 	var level = get_node("/root/global").get_level_playing() + 1
 	get_node("/root/global").set_level_playing(level)
-	
-	if (get_node("/root/global").get_level_solved() < level):
-		get_node("/root/global").set_level_solved(level)
 	
 	get_tree().change_scene("res://levels/" + str(level) + ".tscn")
 

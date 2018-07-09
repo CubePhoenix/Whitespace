@@ -1,7 +1,7 @@
 extends StaticBody2D
 
-const SCALE_DIVISOR = 16500.0
-const COLL_DIVISOR = 18.2
+const SCALE_DIVISOR = 8250.0
+const COLL_DIVISOR = 9.1
 
 export var mass = 500.0
 export var is_finish = false
@@ -12,7 +12,7 @@ func _ready():
 	radius = mass / COLL_DIVISOR
 	
 	if is_finish:
-		get_node("Sprite").set_texture(load("res://assets/planets/finish.png"))
+		get_node("Sprite").set_texture(preload("res://assets/planets/finish.png"))
 	else:
 		var planet_count = len(list_valid_files_in_directory("res://assets/planets/"))
 		var planet = (randi() % (planet_count-1))+1

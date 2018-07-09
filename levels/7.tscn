@@ -39,7 +39,7 @@ tracks/1/keys = {
 
 [node name="Player" parent="." index="0" instance=ExtResource( 1 )]
 
-position = Vector2( 290.051, 883.406 )
+position = Vector2( 300, 950 )
 
 [node name="Planets" type="Node" parent="." index="1"]
 

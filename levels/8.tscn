@@ -27,7 +27,7 @@ tracks/0/keys = {
 
 [node name="Player" parent="." index="0" instance=ExtResource( 1 )]
 
-position = Vector2( 290.051, 883.406 )
+position = Vector2( 300, 950 )
 
 [node name="Planets" type="Node" parent="." index="1"]
 
@@ -38,7 +38,7 @@ mass = 600.0
 
 [node name="Planet4" parent="Planets" index="1" instance=ExtResource( 2 )]
 
-position = Vector2( 291.306, 111.748 )
+position = Vector2( 300, 111.748 )
 is_finish = true
 
 [node name="UI" parent="." index="2" instance=ExtResource( 3 )]

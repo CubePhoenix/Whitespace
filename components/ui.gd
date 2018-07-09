@@ -44,6 +44,11 @@ func show_success():
 	get_node("AnimationPlayer").play("Success")
 	yield(get_node("AnimationPlayer"), "animation_finished")
 	
+	# Update player data
+	var level = get_node("/root/global").get_level_playing() + 1
+	if (get_node("/root/global").get_level_solved() < level):
+		get_node("/root/global").set_level_solved(level)
+	
 func _level_selected(lvl):
 	get_node("AnimationPlayer").play("LevelsSelected")
 	yield(get_node("AnimationPlayer"), "animation_finished")
